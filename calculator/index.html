@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- <section id="result">0</section> -->
+      <input id="result" readonly />
+      <section>
+        <div id="red">
+          <button onclick="clearDispley()" class="duplo">C</button>
+          <button onclick="deleteLast()" id="kopce">Del</button>
+          <button onclick="display('/')" id="kopce">/</button>
+        </div>
+        <div id="red">
+          <button onclick="display('7')" id="kopce">7</button>
+          <button onclick="display('8')" id="kopce">8</button>
+          <button onclick="display('9')" id="kopce">9</button>
+          <button onclick="display('*')" id="kopce">*</button>
+        </div>
+        <div id="red">
+          <button onclick="display('4')" id="kopce">4</button>
+          <button onclick="display('5')" id="kopce">5</button>
+          <button onclick="display('6')" id="kopce">6</button>
+          <button onclick="display('-')" id="kopce">-</button>
+        </div>
+        <div id="red">
+          <button onclick="display('1')" id="kopce">1</button>
+          <button onclick="display('2')" id="kopce">2</button>
+          <button onclick="display('3')" id="kopce">3</button>
+          <button onclick="display('+')" id="kopce">+</button>
+        </div>
+        <div id="red">
+          <button onclick="display('.')" id="kopce">.</button>
+          <button onclick="display('0')" class="duplo">0</button>
+          <button onclick="calculate()" id="kopce">=</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

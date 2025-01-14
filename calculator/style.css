@@ -1,0 +1,47 @@
+html {
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+}
+#wrapper {
+  background-color: black;
+  width: 350px;
+  height: 480px;
+  text-align: center;
+}
+#result {
+  color: white;
+  background-color: black;
+  width: 340px;
+  height: 60px;
+  border: 1px solid black;
+  text-align: right;
+  font-size: 25px;
+}
+#red {
+}
+#kopce {
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+  margin: 1px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+#kopce:last-child {
+  background-color: orange;
+}
+.duplo {
+  width: 166px;
+  height: 80px;
+  font-size: 24px;
+  margin: 1px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
