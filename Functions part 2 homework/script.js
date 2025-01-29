@@ -1,39 +1,59 @@
-// const url =
-//   "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json";
-// console.log(url);
-
-function Name(firstName, lastName) {
-  this.first = firstName;
-  this.last = lastName;
-  this.getName = function () {
-    return `${this.first} ${this.last}`;
-  };
-}
-
 async function getNamesData() {
-  const url =
-    "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json";
   try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new error("Failed to fetch");
-    }
-    const responseData = await response.json();
-    console.log(responseData);
-    const transformData = transformData(responseData);
+    const response = await fetch(
+      "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json"
+    );
+    const students = await response.json();
+    //
+    const studentNames = students.map(
+      (student) => `${student.firstName} ${student.lastName}`
+    );
+    console.log("Student names:", studentNames);
+    //
+    const sortByAverageGrade = students.sort(
+      (a, b) => a.averageGrade - b.averageGrade
+    );
+    console.log("Average grade:", sortByAverageGrade);
+    //
+    const studentsAboveGrade3 = students.filter(
+      (student) => student.averageGrade > 3
+    );
+    console.log("Students with grade higher than 3:", studentsAboveGrade3);
+    //
+    const femaleWithGrade5 = students.filter(
+      (student) => student.gender === "Female" && student.averageGrade === 5
+    );
+    console.log("Female students with average grade of 5:", femaleWithGrade5);
+    //
+    const maleStudents = students.filter(
+      (students) =>
+        students.gender === "Male" &&
+        students.firstName &&
+        students.lastName &&
+        students.city === "Skopje" &&
+        students.age > 18
+    );
+    console.log("Male students who live in Skopje:", maleStudents);
+    //
+    const averageGradeOfFemale = students
+      .filter((student) => student.gender === "Female" && student.age > 24)
+      .map((student) => student.averageGrade);
+    const averageGrade =
+      averageGradeOfFemale.reduce((acc, grade) => acc + grade, 0) /
+      averageGradeOfFemale.length;
+    console.log("Average grades of female students:", averageGrade);
+    //
+    const maleStudentsB = students.filter(
+      (student) =>
+        student.gender === "Male" &&
+        student.firstName.startsWith("B") &&
+        student.averageGrade > 2
+    );
+    console.log("Male students:", maleStudentsB);
+
+    //
   } catch (error) {
-    console.log("Error", error.message);
+    console.error("Error", error);
   }
 }
 getNamesData();
-
-function transformData(responseData) {
-  let resultArray = [];
-  for (let i = 0; i < responseData.length; i++) {
-    let name = new Name(responseData[i].firstName, responseData[i].lastName);
-    resultArray.push(name);
-  }
-  console.log(resultArray);
-  return resultArray;
-}
-transformData();
